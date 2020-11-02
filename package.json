@@ -4,6 +4,7 @@
   "description": "",
   "main": "covidform.js",
   "scripts": {
+    "start": "env TZ='Europe/Paris' node covidform.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
