@@ -75,7 +75,8 @@ const generatePdf = async (profile, reasons = '') => {
         `Motifs: ${reasons}`,
     ].join('; ');
 
-    const existingPdfBytes = await fetch("http://localhost:3000/pdf").then(res => res.arrayBuffer());
+    const PORT = process.env.PORT || 8080;
+    const existingPdfBytes = await fetch("http://localhost:"+PORT+"/pdf").then(res => res.arrayBuffer());
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     const page1 = pdfDoc.getPages()[0];
