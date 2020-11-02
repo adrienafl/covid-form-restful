@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body class="container">
+
+<header>
+    
+</header>
+
+<main style="margin-left: 5px;">
+    <div>
+        <h1>Quel motif ? </h1>
+        <p>Choisissez en un ci-dessous:</p>
+    </div>
+
+    <% reasons.forEach(function(reason) { %>
+        <li style="margin: 5px 0;">
+           <a href="<%= reason.href %>"><%= reason.name %></a>
+        </li>
+    <% }); %>
+
+</main>
+
+<footer>
+   
+</footer>
+
+</body>
+</html>

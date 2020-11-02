@@ -75,7 +75,7 @@ const generatePdf = async (profile, reasons = '') => {
         `Motifs: ${reasons}`,
     ].join('; ');
 
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 8080;
     const existingPdfBytes = await fetch("http://localhost:"+PORT+"/pdf").then(res => res.arrayBuffer());
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
