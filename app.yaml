@@ -14,3 +14,8 @@
 # [START gae_quickstart_yaml]
 runtime: nodejs12
 # [END gae_quickstart_yaml]
+
+handlers:
+- url: /favicon.png
+  static_files: favicon.png
+  upload: favicon.png
