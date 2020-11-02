@@ -6,10 +6,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use('/pdf', express.static('./certificate.pdf'));
 
-const PORT = process.env.PORT || 8080;
-
-app.listen(PORT, () => {
-    console.log("Server running on port "+PORT);
+app.listen(3000, 'localhost', () => {
+    console.log("Server running on port 3000");
 
     app.get("/", async (req, res) => {
         var { lastname, firstname, birthday, lieunaissance, address, zipcode, town, datesortie, heuresortie, reason } = req.query;
