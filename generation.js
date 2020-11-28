@@ -9,15 +9,15 @@ library.add(faEye, faFilePdf);
 let year = 0, month = 0, day = 0;
 
 const ys = {
-    travail: 578,
-    achats: 533,
-    sante: 477,
-    famille: 435,
-    handicap: 396,
-    sport_animaux: 358,
-    convocation: 295,
-    missions: 255,
-    enfants: 211,
+    travail: 486,
+    achats: 415,
+    sante: 370,
+    famille: 349,
+    handicap: 315,
+    sport_animaux: 293,
+    convocation: 211,
+    missions: 178,
+    enfants: 154,
   }
 
 const generateQR = async text => {
@@ -91,15 +91,15 @@ const generatePdf = async (profile, reasons = '') => {
 //    drawText(lieunaissance, 92, 638);
 //    drawText(`${address} ${zipcode} ${town}`, 134, 613);
 
-    drawText(`${firstname} ${lastname}`, 119, 696);
-    drawText(birthday, 119, 674);
-    drawText(lieunaissance, 297, 674);
-    drawText(`${address} ${zipcode} ${town}`, 133, 652);
+    drawText(`${firstname} ${lastname}`, 119, 658);
+    drawText(birthday, 119, 628);
+    drawText(lieunaissance, 247, 628);
+    drawText(`${address} ${zipcode} ${town}`, 133, 598);
 
     reasons.split(',').forEach(reason => {
         if(ys[reason] != undefined)
         {
-            drawText('x', 78, ys[reason], 18)
+            drawText('x',58, ys[reason],18)
         }
     });
 
@@ -114,14 +114,14 @@ const generatePdf = async (profile, reasons = '') => {
         locationSize = 7
     }
 
-    drawText(profile.town, 105, 175, locationSize);
+    drawText(profile.town, 105, 125, locationSize);
 
 
         // Date sortie
-        drawText(`${datesortie || day + '/' + month + '/' + year}`, 91, 152,11);
-        drawText(releaseHours || hour, 255, 152,11);
-        drawText(':', 270, 152,11);        
-        drawText(releaseMinutes || minute, 275, 152,11);
+        drawText(`${datesortie || day + '/' + month + '/' + year}`, 91, 93,11);
+        drawText(releaseHours || hour, 255, 93,11);
+        drawText(':', 270, 93,11);        
+        drawText(releaseMinutes || minute, 275, 93,11);
 
     // Date création
     //drawText('Date de création:', 464, 110, 7);
@@ -131,12 +131,12 @@ const generatePdf = async (profile, reasons = '') => {
 
     const qrImage = await pdfDoc.embedPng(generatedQR);
 
-    page1.drawImage(qrImage, {
-        x: page1.getWidth() - 156,
-        y: 100,
-        width: 92,
-        height: 92,
-    });
+   // page1.drawImage(qrImage, {
+   //     x: page1.getWidth() - 156,
+   //     y: 100,
+   //     width: 92,
+   //     height: 92,
+   // });
 
     pdfDoc.addPage();
     const page2 = pdfDoc.getPages()[1];
